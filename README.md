@@ -19,7 +19,7 @@ Para iniciar una instancia de **SQL Server** en un contenedor Docker, ejecuta el
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourPassword123!' \
    -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
 ```
-
+'
 ### Instalar sqlcmd
 ```sh
 sudo apt update
@@ -38,7 +38,7 @@ sqlcmd -S localhost -U sa -P YourPassword123!
 CREATE TABLE usuarios (
    username VARCHAR(50) PRIMARY KEY,
    nombre_completo VARCHAR(255) NOT NULL,
-   contrasena CHAR(40) NOT NULL
+   contrasena CHAR(40) NOT NULL,
 );
 GO
 ```
@@ -47,7 +47,8 @@ GO
 CREATE TABLE personajes (
    id INT PRIMARY KEY,
    name NVARCHAR(50),
-   email NVARCHAR(100)
+   email NVARCHAR(100),
+   whatsapp CHAR(10)
 );
 GO
 ```
@@ -61,10 +62,10 @@ GO
 
 ### Agregar algunos personajes
 ```sh
-INSERT INTO personajes (id, name, email) VALUES
-(1, 'Mark Grayson', 'mark@gmail.com'),
-(2, 'Allen the Alien', 'allen@gmail.com'),
-(3, 'Atom Eve', 'eve@gmail.com');
+INSERT INTO personajes (id, name, email, whatsapp) VALUES
+(1, 'Mark Grayson', 'mark@gmail.com', '8008800877'),
+(2, 'Allen the Alien', 'allen@gmail.com','1234567890'),
+(3, 'Atom Eve', 'eve@gmail.com', '2277338844');
 GO
 ```
 
